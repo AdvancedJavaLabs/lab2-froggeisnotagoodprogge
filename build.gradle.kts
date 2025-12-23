@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.9.20"
+    java
     application
 }
 
@@ -11,8 +12,9 @@ repositories {
 }
 
 dependencies {
-    implementation("javax.jms:jms-api:2.0.1")
+    implementation("com.rabbitmq:amqp-client:5.27.1")
     implementation("org.apache.activemq:activemq-broker:6.1.1")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.17.1")
     testImplementation(kotlin("test"))
 }
 
@@ -25,5 +27,5 @@ kotlin {
 }
 
 application {
-    mainClass.set("MainKt")
+    mainClass.set("Main")
 }

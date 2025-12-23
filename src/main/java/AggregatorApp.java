@@ -55,6 +55,10 @@ public class AggregatorApp {
                 System.out.println("Total words: " + state.totalWordCount.get());
                 System.out.println("Top words: " + JobState.getTopN(state.globalWordFreq, 10));
                 System.out.println("Total sentiment: " + state.totalSentiment.get());
+
+
+                JsonUtils.toFile(state, "job_" + result.jobId + "_report.json");
+                System.out.println("Results saved to job_" + result.jobId + "_report.json");
             }
 
             channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
